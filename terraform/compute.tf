@@ -25,7 +25,7 @@ resource "yandex_compute_instance" "lb" {
   }
 
   metadata = {
-    ssh-keys  = "ubuntu:${file("~/.ssh/aglumov_id_rsa.pub")}"
+    ssh-keys  = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
     user-data = "#cloud-config\nhostname: lb${count.index}"
   }
 }
@@ -57,7 +57,7 @@ resource "yandex_compute_instance" "db" {
   }
 
   metadata = {
-    ssh-keys  = "ubuntu:${file("~/.ssh/aglumov_id_rsa.pub")}"
+    ssh-keys  = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
     user-data = "#cloud-config\nhostname: db${count.index}"
   }
 }
@@ -89,7 +89,7 @@ resource "yandex_compute_instance" "app" {
   }
 
   metadata = {
-    ssh-keys  = "ubuntu:${file("~/.ssh/aglumov_id_rsa.pub")}"
+    ssh-keys  = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
     user-data = "#cloud-config\nhostname: app${count.index}"
   }
 }
